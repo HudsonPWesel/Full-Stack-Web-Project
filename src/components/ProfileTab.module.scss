@@ -1,0 +1,93 @@
+@import '../mixins-and-placeholders.module.scss';
+@import '../pages/variables.scss';
+.post{
+    // To override the default styles already on instance use !important
+    transform: scale(0.8);
+    transform-origin: left; // Allow justify to work properly
+    margin-left: 0 !important;
+    p{
+
+        font-size: 1.2rem !important; 
+    }
+    justify-self: start !important;
+
+
+}
+.profile__tab{
+    &-container{
+        width: 100%;
+        margin-left: 1.2rem;
+        font-family: $primary-font-family;
+        grid-column: 1;
+
+        align-items: center;
+        gap: 1rem;
+        display: flex;
+        border-radius: 10px;
+
+        transition: all 0.3s ease-in-out;
+        padding: .5rem;
+
+        background-color: none;
+
+
+    }
+    &-container:hover{
+        .profile__tab__image--container{
+            // background-image: none;
+        }
+        cursor: pointer;
+
+        background-color: rgb(235, 235, 235);
+        // FIXME: Transitions don't work on linear gradients
+
+        // background-image: linear-gradient(45deg, #7308FB, #E92BE1);
+        .profile__tab--text-container{
+            font-family: $primary-font-family;
+            
+        }
+
+    }
+    &--text-container{
+        p{
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+    }
+    
+
+    &--sub-heading{
+        opacity: 30%;
+        font-weight: 600;
+    }
+    &__image--container{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width: 5.5rem;
+        height: 5.5rem;
+        border-radius: 100px;
+
+        background: linear-gradient(45deg, #7308FB, #E92BE1);
+
+    }
+   
+
+    &--img{
+        width: 5rem;
+        height: 5rem;
+        
+        border-radius: 100px;
+
+        
+        background-origin: border-box; 
+        
+        background-clip: border-box;
+
+    }
+
+  
+
+}
+

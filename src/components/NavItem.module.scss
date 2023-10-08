@@ -1,0 +1,22 @@
+.nav-item{
+    &__container{
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+
+        height: 2rem;
+        border-bottom: 3px solid transparent;
+        transition: all 0.2s ease-out;
+
+        a, a:visited, a:hover, a:active{
+            display:inline-block;
+            color: black;
+            text-decoration: none;
+        }
+    }
+    
+    &__container:hover{
+        cursor: pointer;
+        border-bottom: 3px solid black;
+    }
+}

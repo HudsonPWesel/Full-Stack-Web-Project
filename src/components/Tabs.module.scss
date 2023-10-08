@@ -1,0 +1,33 @@
+@import '../variables';
+.container {
+    height: min-height;
+    width: 80rem;
+    grid-column: 2 / -1;
+
+    display: flex;
+    justify-content: center;
+
+
+    
+    gap: 3rem;
+    
+    a:first-child{
+        // TODO: IMPLEMENT BACKUP
+
+        font-weight: 600;
+        display: inline-block;
+        color: rgb(0, 0, 0);
+        opacity: 100%;
+        text-decoration: none;
+    }
+    a{
+        font-family: $secondary-font-family ;
+        font-weight: 600;
+        display: inline-block;
+        color: rgb(0, 0, 0);
+        opacity: 30%;
+
+        text-decoration: none;
+    }
+
+}

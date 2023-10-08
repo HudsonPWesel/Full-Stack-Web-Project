@@ -1,0 +1,36 @@
+@import 'variables';
+.html{
+    font: 62.5%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $background-color;    
+    font-family: $primary-font-family;
+
+}
+.body{
+    margin: 0
+}
+.main_container{
+    display: grid;
+    grid-template-columns: .5fr 2fr;
+    grid-template-rows: 4rem 5rem 6rem 50% 1fr;
+    margin-left: 1rem;
+    // margin-top: 1rem;
+    row-gap: 1rem;
+    min-height: inherit;
+
+    column-gap: 15.5rem; 
+
+    overflow: auto;
+}
+.sidebar__container{
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    align-items: center;
+    grid-column: 1;
+
+}
+
+
+
