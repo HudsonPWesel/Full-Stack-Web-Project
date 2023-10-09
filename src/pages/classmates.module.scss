@@ -1,0 +1,9 @@
+.classmates{
+    &__container{
+        display: grid;
+        grid-template-columns: .5fr repeat(2, 1fr);
+        grid-template-rows: min-content 1fr;
+        height: 100vh;
+    }
+    
+}
