@@ -1,5 +1,9 @@
 @import '../mixins-and-placeholders.module.scss';
 @import '../pages/variables.scss';
+.classmates{
+    grid-column: 3 !important;
+    color: blue;
+}
 .nav-panel{
     &__container{
         display: grid;

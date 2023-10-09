@@ -12,31 +12,45 @@ const navItems = [
 	{
 		subheading: 'Home',
 		imageSrc: home,
+		directory: '/',
 	},
 	{
 		subheading: 'My Classmates',
 		imageSrc: people,
+		directory: '/classmates',
 	},
 	{
 		subheading: 'Workspaces',
 		imageSrc: house_panel,
+		directory: '/workspaces',
 	},
 	{
 		subheading: 'Messaging',
 		imageSrc: message,
+		directory: '/messages',
 	},
 	{
 		subheading: 'Notifications',
 		imageSrc: bell,
+		directory: '/notifications',
 	},
 ];
-const NavPanel = () => {
+const NavPanel = props => {
+	const { addedStyles } = props;
+	console.log(addedStyles);
 	const navPanelContent = navItems.map(el => (
-		<NavItem key={el.id} imageSrc={el.imageSrc} subheading={el.subheading} />
+		<NavItem
+			key={el.id}
+			imageSrc={el.imageSrc}
+			subheading={el.subheading}
+			directory={el.directory}
+		/>
 	));
 
 	return (
-		<div className={styles['nav-panel__container']}>{navPanelContent}</div>
+		<div className={`${styles['nav-panel__container']} ${addedStyles}`}>
+			{navPanelContent}
+		</div>
 	);
 };
 

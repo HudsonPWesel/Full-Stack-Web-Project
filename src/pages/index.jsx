@@ -47,13 +47,13 @@ function App() {
 // Be careful because when you have dynamic pages you NEED to set the getStaticPaths | use DB to detemine # of paths | fallback : true  --> even params not listed can be valid but they're not pre-generated HOWEVER you need to include a fallback state which you can return if !props
 // YOU DON"T HAVE ACCESS TO REQUESTS
 // }
-export async function getStaticProps() {
-	// Server Side logic
-	// Executes when you use build script AND incremental static generation (after every X seconds) via revalidate: numSeconds
-	// --Further Configurations--
-	// return {notFound: true}
-	// return {redirect: {destination: /path}}
-}
+// export async function getStaticProps() {
+// Server Side logic
+// Executes when you use build script AND incremental static generation (after every X seconds) via revalidate: numSeconds
+// --Further Configurations--
+// return {notFound: true}
+// return {redirect: {destination: /path}}
+// }
 
 // getServerSideProps(context) --> Whenver req is made
 // this req DOES have access to req and res | USEFUL FOR COOKIES

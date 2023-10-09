@@ -10,7 +10,7 @@ const NavItem = props => {
 		<div className={styles['nav-item__container']}>
 			{/* Replace the <img> with the <Image> component */}
 			<Image src={props.imageSrc} alt="" width={24} height={24} />
-			<Link href={`/classmates`}>{props.subheading}</Link>
+			<Link href={props.directory}>{props.subheading}</Link>
 		</div>
 	);
 };
