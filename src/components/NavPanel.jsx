@@ -37,7 +37,7 @@ const navItems = [
 ];
 const NavPanel = props => {
 	const { addedStyles } = props;
-	console.log(addedStyles);
+
 	const navPanelContent = navItems.map(el => (
 		<NavItem
 			key={el.id}
