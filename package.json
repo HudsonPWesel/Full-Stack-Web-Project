@@ -4,7 +4,7 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "dev": "next server",
+    "dev": "next dev",
     "start": "node server",
     "lint": "next lint"
   },

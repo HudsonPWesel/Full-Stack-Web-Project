@@ -3,7 +3,8 @@ const path = require('path');
 const app = express();
 
 // app.get('/', (req, res) => {
-// 	res.sendFile(path.resolve('src', 'pages', 'index.jsx'));
+// console.log('EWFEW');
+// res.sendFile(path.resolve('src', 'pages', 'index.jsx'));
 // });
 
-// module.exports = app;
+module.exports = app;
