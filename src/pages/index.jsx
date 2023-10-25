@@ -15,7 +15,7 @@ import { useSelector, useDispatch } from 'react-redux';
 function App() {
 	const isShowingSidebar = useSelector(state => state.isShowing);
 	const sidebarItems = useSelector(state => state.items);
-
+	fetch('http://localhost:3001');
 	const sidebarContent = !isShowingSidebar
 		? ''
 		: sidebarItems.map(val => {
