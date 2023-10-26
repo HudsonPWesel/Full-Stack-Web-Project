@@ -2,6 +2,7 @@ import NavPanel from '@/components/NavPanel';
 import styles from '../pages/classmates.module.scss';
 import Panel from '../components/classmates/Panel';
 import NavPanelstyles from '../components/NavPanel.module.scss';
+import { useState, useEffect } from 'react';
 
 function Classmates() {
 	return (
