@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = require('../api/database');
 
+// User defined template (DB Table)
 const User = sequelize.define('user', {
 	id: {
 		type: Sequelize.INTEGER,

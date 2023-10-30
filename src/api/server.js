@@ -3,11 +3,28 @@ const app = express();
 const cors = require('cors');
 const sequlize = require('./database');
 const User = require('../models/user');
+const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 app.use(cors());
 
-sequlize.sync().then(res => {
-	console.log(res);
-});
+// Implicity knows all defined models using sequlize.define()
+sequlize
+	.sync()
+	.then(res => {
+		app.listen(3001, () => {
+			console.log(`Server started successfully! Running on port 3001`);
+			User.truncate();
+			createTemplateUsers(
+				'Hudson',
+				'Wesel',
+				'cshudsonwesel@gmail.com',
+				'image',
+				'subheading'
+			);
+		});
+	})
+	.catch(err => {
+		console.log(err);
+	});
 
 app.get('/', (req, res) => {
 	console.log('Testing');
@@ -15,10 +32,6 @@ app.get('/', (req, res) => {
 
 app.get('/classmates', (req, res) => {
 	User.findAll().then(users => {
-		console.log(users);
+		console.log('EFE');
 	});
-});
-
-app.listen(3001, () => {
-	console.log(`Server started successfully! Running on port 3001`);
 });
