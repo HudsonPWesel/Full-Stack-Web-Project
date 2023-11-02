@@ -20,6 +20,21 @@ sequlize
 				'image',
 				'subheading'
 			);
+
+			createTemplateUsers(
+				'Graham',
+				'Wesel',
+				'gwesel@gmail.com',
+				'image',
+				'subheading'
+			);
+			createTemplateUsers(
+				'Blake',
+				'Wesel',
+				'bwesell@gmail.com',
+				'image',
+				'subheading'
+			);
 		});
 	})
 	.catch(err => {
@@ -27,11 +42,12 @@ sequlize
 	});
 
 app.get('/', (req, res) => {
-	console.log('Testing');
+	res.send('EWFIJFWEO');
 });
-
-app.get('/classmates', (req, res) => {
-	User.findAll().then(users => {
-		console.log('EFE');
-	});
+app.get('/classmates', async (req, res) => {
+	// console.log('messfoeiwjfeoiwjfeoiwjofeiwjage');
+	const users = await User.findAll();
+	res.send(users);
+	// res.send(User.findAll().then(res => res));
+	// res.send(values);
 });

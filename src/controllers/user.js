@@ -20,7 +20,5 @@ exports.createTemplateUsers = (
 		email,
 		imageUrl,
 		subheading,
-	}).then(user => {
-		console.log(user);
 	});
 };
