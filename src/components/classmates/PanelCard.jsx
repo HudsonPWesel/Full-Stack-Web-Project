@@ -11,9 +11,9 @@ const PanelCard = props => {
 				width={24}
 				height={24}
 			/>
-			<h3>NAME FROM DB</h3>
-			<p className={styles['panelcard__subheading']}>SUBHEADING FROM DB</p>
-			<Connect />
+			<h3>{props.name}</h3>
+			<p className={styles['panelcard__subheading']}>{props.subheading}</p>
+			<Connect>Connect + </Connect>
 		</div>
 	);
 };

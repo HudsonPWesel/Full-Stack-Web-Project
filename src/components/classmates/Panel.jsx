@@ -4,29 +4,26 @@ import PanelCardImage from '../../assets/images/profile_image.jpeg';
 import { useFetch } from '../hooks/useFetch';
 
 const Panel = () => {
-	const fetchUserPanelCards = async () => {
-		fetch('http://localhost:3001/classmates')
-			.then(response => response.json())
-			.then(data => console.log(data));
-	};
-	fetchUserPanelCards();
+	// console.log(useFetch());
+		const fetchFunc = () => {
+			return fetch('http://localhost:3001/classmates');
+		};
+    // No dependencies so function will only run once
+    const { currentData, updateCurrentData } = useFetch(fetchFunc);
 
-	// const fetchUserPanelCards = async () => {
-	// 	return await fetch('http://localhost:3001/classmates')
-	// 		.then(res => {
-	// 			return res.json();
-	// 		})
-	// 		.then(data => {
-	// 			console.log(data);
-	// 		});
-	// };
-	// const panelCards = useFetch(fetchUserPanelCards);
-	// console.log(panelCards);
+    const content = currentData[0].map(val =>{
+        console.log(val);
+        return <PanelCard name={val['firstName'] + " " + val['lastName']} 
+                        subheading={val['subheading']} 
+                        imageSrc={PanelCardImage} /> });
+
+    
+	// console.log(currentData[0]);
 
 	// Get X amount of cards and map but for now...
 	return (
 		<div className={styles['panel__container']}>
-			<PanelCard imageSrc={PanelCardImage} />
+            {content}
 		</div>
 	);
 };
