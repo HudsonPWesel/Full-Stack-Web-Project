@@ -4,6 +4,8 @@ const cors = require('cors');
 const sequlize = require('./database');
 const User = require('../models/user');
 const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
+const morgan = require('morgan');
+app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
@@ -73,6 +75,9 @@ const login = async (req, res) => {
 }
 
 app.get('/', getHome);
-app.get('/classmates/:id', getClassmate)
-app.get('/classmates', getClassmates);
-app.post('/login', login)
+app.post('/login', login);
+
+const classmatesRouter = express.Router();
+app.use('/classmates', classmatesRouter);
+classmatesRouter.route('/').get(getClassmates);
+classmatesRouter.route('/:id').get(getClassmate);
