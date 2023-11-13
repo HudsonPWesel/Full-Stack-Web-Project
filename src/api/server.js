@@ -5,6 +5,7 @@ const sequlize = require('./database');
 const User = require('../models/user');
 const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 app.use(cors());
+app.use(express.json());
 
 // Implicity knows all defined models using sequlize.define()
 sequlize
@@ -41,13 +42,37 @@ sequlize
 		console.log(err);
 	});
 
-app.get('/', (req, res) => {
-	res.send('EWFIJFWEO');
-});
-app.get('/classmates', async (req, res) => {
-	// console.log('messfoeiwjfeoiwjfeoiwjofeiwjage');
-	const users = await User.findAll();
-	res.send(users);
-	// res.send(User.findAll().then(res => res));
-	// res.send(values);
-});
+const getClassmate = async (req, res) => {
+    console.log('CLASSMATE');
+    const users = await User.findAll();
+    const user = users.find(element => 
+        element.id == req.params.id
+    );
+
+    if (!user){
+        return res.status(404).json({
+            status: 'fail',
+            message: 'Invalid ID'
+        })
+    }
+    res.send(user);
+
+
+}
+const getHome = async (req,res) => {
+    res.send('Home Page');
+
+}
+const getClassmates = async (req, res) => {
+    const users = await User.findAll();
+    res.send(users);
+}
+const login = async (req, res) => {
+    console.log(req.body);
+    res.send('Logging-in');
+}
+
+app.get('/', getHome);
+app.get('/classmates/:id', getClassmate)
+app.get('/classmates', getClassmates);
+app.post('/login', login)
