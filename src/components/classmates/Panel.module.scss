@@ -1,8 +1,8 @@
 .panel{
     &__container{
-        padding-top: 1rem;
+        margin-top: 1rem;
         display:grid;
-        grid-template-rows: 1fr repeat(3, 5fr);
+        grid-template-rows: 1fr repeat(3, 7fr);
         grid-template-columns: repeat(4, 1fr);
         
         border-radius: 17px;

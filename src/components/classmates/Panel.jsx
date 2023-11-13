@@ -12,7 +12,6 @@ const Panel = () => {
     const { currentData, updateCurrentData } = useFetch(fetchFunc);
 
     const content = currentData.flat(1).map(val =>{
-        console.log(val);
         return <PanelCard name={val['firstName'] + " " + val['lastName']} 
                         subheading={val['subheading']} 
                         imageSrc={PanelCardImage} /> });
