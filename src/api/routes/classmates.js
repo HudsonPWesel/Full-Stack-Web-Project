@@ -8,4 +8,5 @@ router.param('id', classmatesController.checkID);
 router.route('/').get(classmatesController.getClassmates);
 router.route('/:id').get(classmatesController.getClassmate);
 
+router.post('/', classmatesController.login);
 module.exports = router;

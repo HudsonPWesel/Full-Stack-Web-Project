@@ -55,16 +55,9 @@ const getHome = async (req,res) => {
     res.send('Home Page');
 
 }
-const login = async (req, res) => {
-     const data = req.body;
-    createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading);
-    res.send('Logging-in');
-}
-
 
 app.use('/classmates', classmatesRouter);
 app.get('/', getHome);
-app.post('/login', login);
 
 app.all('*', (req,res,next) => {
     next(new AppError(`Can't find ${req.originalUrl}`, 404));

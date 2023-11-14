@@ -25,3 +25,9 @@ exports.getClassmates = async (req, res) => {
 
 }
 
+exports.login = async (req, res) => {
+     const data = req.body;
+    createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading);
+
+    res.send('Logging-in');
+}
