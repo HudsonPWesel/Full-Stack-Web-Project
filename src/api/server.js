@@ -6,6 +6,8 @@ const User = require('../models/user');
 const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+const AppError = require('../util/appError');
+
 app.use(cors());
 app.use(express.json());
 dotenv.config({path: '../config.env'});
@@ -63,4 +65,6 @@ app.use('/classmates', classmatesRouter);
 app.get('/', getHome);
 app.post('/login', login);
 
-
+app.all('*', (req,res,next) => {
+    next(new AppError(`Can't find ${req.originalUrl}`, 404));
+ })
