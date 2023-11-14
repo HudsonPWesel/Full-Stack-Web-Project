@@ -1,4 +1,5 @@
 const express = require('express');
+const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 const User = require('../models/user');
 exports.checkID = (req,res,next, val) => {
     if (val > 3){
