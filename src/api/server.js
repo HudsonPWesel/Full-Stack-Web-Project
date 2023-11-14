@@ -56,7 +56,8 @@ const getHome = async (req,res) => {
 
 }
 const login = async (req, res) => {
-    console.log(req.body);
+     const data = req.body;
+    createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading);
     res.send('Logging-in');
 }
 
