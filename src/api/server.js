@@ -9,6 +9,8 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
+const classmatesRouter = require('./routes/classmates');
+
 // Implicity knows all defined models using sequlize.define()
 sequlize
 	.sync()
@@ -44,40 +46,19 @@ sequlize
 		console.log(err);
 	});
 
-const getClassmate = async (req, res) => {
-    console.log('CLASSMATE');
-    const users = await User.findAll();
-    const user = users.find(element => 
-        element.id == req.params.id
-    );
 
-    if (!user){
-        return res.status(404).json({
-            status: 'fail',
-            message: 'Invalid ID'
-        })
-    }
-    res.send(user);
-
-
-}
 const getHome = async (req,res) => {
     res.send('Home Page');
 
-}
-const getClassmates = async (req, res) => {
-    const users = await User.findAll();
-    res.send(users);
 }
 const login = async (req, res) => {
     console.log(req.body);
     res.send('Logging-in');
 }
 
+
+app.use('/classmates', classmatesRouter);
 app.get('/', getHome);
 app.post('/login', login);
 
-const classmatesRouter = express.Router();
-app.use('/classmates', classmatesRouter);
-classmatesRouter.route('/').get(getClassmates);
-classmatesRouter.route('/:id').get(getClassmate);
+
