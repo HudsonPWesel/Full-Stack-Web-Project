@@ -5,12 +5,13 @@ const sequlize = require('./database');
 const User = require('../models/user');
 const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 const morgan = require('morgan');
-app.use(morgan('dev'));
+const dotenv = require('dotenv');
 app.use(cors());
 app.use(express.json());
+dotenv.config({path: '../config.env'});
 
+app.use(morgan('dev'));
 const classmatesRouter = require('./routes/classmates');
-
 // Implicity knows all defined models using sequlize.define()
 sequlize
 	.sync()
@@ -48,6 +49,7 @@ sequlize
 
 
 const getHome = async (req,res) => {
+    console.log(process.env);
     res.send('Home Page');
 
 }
