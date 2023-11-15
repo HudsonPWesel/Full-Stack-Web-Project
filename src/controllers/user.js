@@ -8,7 +8,6 @@ exports.clearUsers = () => {
 	});
 };
 exports.createTemplateUsers = ( firstName, lastName, email, imageUrl, subheading, password, passwordConfirm) => {
-    console.log('PASSWORD CONFIRM ' + passwordConfirm);
 	User.create({ firstName, lastName, email, imageUrl, subheading, password, passwordConfirm});
 };
 

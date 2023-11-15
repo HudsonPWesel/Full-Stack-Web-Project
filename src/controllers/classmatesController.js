@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 
 exports.checkID = (req,res,next, val) => {
@@ -28,7 +29,8 @@ exports.getClassmates = async (req, res) => {
 
 exports.createClassmate = async (req, res) => {
     const data = req.body;
-    console.log(data.passwordConfirm);
+    // const token = jwt.sign({id: data.id}, 'PLACEHOLDER');
+
     createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading, data.password, data.passwordConfirm);
     res.status(201).json({
         status: 'success',

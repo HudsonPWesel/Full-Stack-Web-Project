@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
 const sequlize = require('./database');
 const User = require('../models/user');
@@ -11,11 +10,11 @@ const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 
 const classmatesRouter = require('./routes/classmates');
 const loginRouter = require('./routes/login');
-const { memo } = require('react');
 
+const app = express();
 app.use(cors());
 app.use(express.json());
-dotenv.config({path: '../config.env'});
+dotenv.config({path: '/Users/wyld7k/Desktop/Coding-Languages/Projects/fullstack-project/Full-Stack-Web-App/src/api/config.env'});
 
 app.use(morgan('dev'));
 // Implicity knows all defined models using sequlize.define()
@@ -23,8 +22,8 @@ app.use(morgan('dev'));
 sequlize
 	.sync()
 	.then(res => {
-		app.listen(3001, () => {
-			console.log(`Server started successfully! Running on port 3001`);
+		app.listen(process.env.PORT, () => {
+			console.log(`Server started successfully! Running on port ${process.env.PORT}`);
 			User.truncate();
 			createTemplateUsers(
 				'Hudson',
