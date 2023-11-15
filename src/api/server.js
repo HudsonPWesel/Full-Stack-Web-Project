@@ -15,6 +15,7 @@ dotenv.config({path: '../config.env'});
 app.use(morgan('dev'));
 const classmatesRouter = require('./routes/classmates');
 // Implicity knows all defined models using sequlize.define()
+// WARNING --DELETING ALL USERS AT THE START OF NODE SERVER SO NEW USERS WILL BE DELETED
 sequlize
 	.sync()
 	.then(res => {
