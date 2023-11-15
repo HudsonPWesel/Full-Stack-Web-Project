@@ -3,8 +3,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const AppError = require('../util/appError');
-
-const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
+const globalErrorHandler = require('../controllers/errorController');
+const { createTemplateUsers, clearUsers } = require('../controllers/user');
 
 const classmatesRouter = require('./routes/classmates');
 const loginRouter = require('./routes/login');
@@ -27,5 +27,6 @@ app.use('/', loginRouter);
 app.all('*', (req,res,next) => {
     next(new AppError(`Cannot find ${req.originalUrl}`, 404));
  })
+app.use(globalErrorHandler);
 
 module.exports = app;
