@@ -1,3 +1,4 @@
 exports.login = (req,res) => {
-    res.send('Logging-in');
+    
+    res.send('WEIFFWIEU');
 }

@@ -30,7 +30,9 @@ sequlize
 				'Wesel',
 				'cshudsonwesel@gmail.com',
 				'image',
-				'subheading'
+				'subheading',
+                'password'
+
 			);
 
 			createTemplateUsers(
@@ -38,14 +40,16 @@ sequlize
 				'Wesel',
 				'gwesel@gmail.com',
 				'image',
-				'subheading'
+				'subheading',
+                'password'
 			);
 			createTemplateUsers(
 				'Blake',
 				'Wesel',
 				'bwesell@gmail.com',
 				'image',
-				'subheading'
+				'subheading',
+                'password'
 			);
 		});
 	})

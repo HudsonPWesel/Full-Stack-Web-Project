@@ -7,8 +7,8 @@ exports.clearUsers = () => {
 		truncat: true,
 	});
 };
-exports.createTemplateUsers = ( firstName, lastName, email, imageUrl, subheading) => {
-	User.create({ firstName, lastName, email, imageUrl, subheading, });
+exports.createTemplateUsers = ( firstName, lastName, email, imageUrl, subheading, password) => {
+	User.create({ firstName, lastName, email, imageUrl, subheading, password});
 };
 
 
