@@ -11,6 +11,7 @@ const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 
 const classmatesRouter = require('./routes/classmates');
 const loginRouter = require('./routes/login');
+const { memo } = require('react');
 
 app.use(cors());
 app.use(express.json());
@@ -31,7 +32,8 @@ sequlize
 				'cshudsonwesel@gmail.com',
 				'image',
 				'subheading',
-                'password'
+                'password',
+                'password',
 
 			);
 
@@ -41,6 +43,7 @@ sequlize
 				'gwesel@gmail.com',
 				'image',
 				'subheading',
+                'password',
                 'password'
 			);
 			createTemplateUsers(
@@ -49,6 +52,7 @@ sequlize
 				'bwesell@gmail.com',
 				'image',
 				'subheading',
+                'password',
                 'password'
 			);
 		});

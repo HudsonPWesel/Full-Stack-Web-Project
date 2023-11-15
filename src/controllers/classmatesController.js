@@ -28,7 +28,13 @@ exports.getClassmates = async (req, res) => {
 
 exports.createClassmate = async (req, res) => {
     const data = req.body;
-
-    createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading, data.password);
-    res.send('WEFEF');
+    console.log(data.passwordConfirm);
+    createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading, data.password, data.passwordConfirm);
+    res.status(201).json({
+        status: 'success',
+        data : {
+            user: req.body
+        }
+    }
+    );
 }
