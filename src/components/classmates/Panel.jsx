@@ -11,7 +11,7 @@ const Panel = () => {
     // No dependencies so function will only run once
     const { currentData, updateCurrentData } = useFetch(fetchFunc);
 
-    const content = currentData.flat(1).map(val =>{
+    const content = currentData.data?.users.flat(1).map(val =>{
         return <PanelCard name={val['firstName'] + " " + val['lastName']} 
                         subheading={val['subheading']} 
                         imageSrc={PanelCardImage} /> });

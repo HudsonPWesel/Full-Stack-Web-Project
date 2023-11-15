@@ -1,7 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const sequlize = require('./database');
-const User = require('../models/user');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const AppError = require('../util/appError');
