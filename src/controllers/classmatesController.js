@@ -1,6 +1,6 @@
-const express = require('express');
-const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 const User = require('../models/user');
+const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
+
 exports.checkID = (req,res,next, val) => {
     if (val > 3){
         return res.status(404).json({
@@ -26,7 +26,7 @@ exports.getClassmates = async (req, res) => {
 
 }
 
-exports.login = async (req, res) => {
+exports.createClassmate = async (req, res) => {
      const data = req.body;
     createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading);
 

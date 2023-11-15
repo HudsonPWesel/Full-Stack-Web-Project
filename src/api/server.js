@@ -3,17 +3,20 @@ const app = express();
 const cors = require('cors');
 const sequlize = require('./database');
 const User = require('../models/user');
-const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const AppError = require('../util/appError');
+
+const { createTemplateUsers, clearUsers } = require('../controllers/user.js');
+
+const classmatesRouter = require('./routes/classmates');
+const loginRouter = require('./routes/login');
 
 app.use(cors());
 app.use(express.json());
 dotenv.config({path: '../config.env'});
 
 app.use(morgan('dev'));
-const classmatesRouter = require('./routes/classmates');
 // Implicity knows all defined models using sequlize.define()
 // WARNING --DELETING ALL USERS AT THE START OF NODE SERVER SO NEW USERS WILL BE DELETED
 sequlize
@@ -51,15 +54,12 @@ sequlize
 	});
 
 
-const getHome = async (req,res) => {
-    console.log(process.env);
-    res.send('Home Page');
 
-}
-
+// Todo Maybe make createNewClassmate a new route
 app.use('/classmates', classmatesRouter);
-app.get('/', getHome);
+app.use('/', loginRouter);
+
 
 app.all('*', (req,res,next) => {
-    next(new AppError(`Can't find ${req.originalUrl}`, 404));
+    next(new AppError(`Cannot find ${req.originalUrl}`, 404));
  })
