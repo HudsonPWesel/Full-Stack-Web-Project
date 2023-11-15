@@ -29,11 +29,16 @@ exports.getClassmates = async (req, res) => {
 
 exports.createClassmate = async (req, res) => {
     const data = req.body;
-    // const token = jwt.sign({id: data.id}, 'PLACEHOLDER');
+    console.log(typeof process.env.JWT_EXPIRES);
+    console.log(typeof process.env.JWT_SECRET);
+    console.log(data.id);
+
+    const token = jwt.sign( {data: data.id}, process.env.JWT_SECRET, {expiresIn : process.env.JWT_EXPIRES});
 
     createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading, data.password, data.passwordConfirm);
     res.status(201).json({
         status: 'success',
+        token,
         data : {
             user: req.body
         }
