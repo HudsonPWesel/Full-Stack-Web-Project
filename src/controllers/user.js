@@ -7,10 +7,18 @@ exports.clearUsers = () => {
 		truncat: true,
 	});
 };
+
 exports.createTemplateUsers = ( firstName, lastName, email, imageUrl, subheading, password, passwordConfirm) => {
+    let duplicateUser;
+
     if(!firstName || !lastName || !email || !imageUrl || !subheading || !password || !passwordConfirm)
         throw new Error('Empty Field');
-	User.create({ firstName, lastName, email, imageUrl, subheading, password, passwordConfirm});
+    else if(duplicateUser)
+        throw new Error('Duplicate User');
+
+    
+    User.create({ firstName, lastName, email, imageUrl, subheading, password, passwordConfirm});
+
 };
 
 
