@@ -49,10 +49,7 @@ exports.getClassmates = catchAsync(async (req, res, next) => {
 });
 
 exports.createClassmate = catchAsync(async (req, res, next) => {
-    console.log(Object.keys(User.rawAttributes));
-
-
-
+    // TODO: INPUT VALIDATION
     const data = req.body;
     const token = jwt.sign( {data: data.id}, process.env.JWT_SECRET, {expiresIn : process.env.JWT_EXPIRES} );
 

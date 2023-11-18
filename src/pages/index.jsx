@@ -14,7 +14,7 @@ const LoginForm = () => {
             url: 'http://localhost:3001/',
             data: {
                 email: email.current.value,
-                password: password.current.value
+                password: password.current.value,
             }
         });
     };

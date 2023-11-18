@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../api/database');
-
+const passwordHasher = require('../util/passwordhasher.js');
 
 
 // User defined template (DB Table)
@@ -43,17 +43,19 @@ const User = sequelize.define('user', {
 
     }
 });
-
 User.beforeCreate((user, options) => {
-    console.log(user.firstName);
-    return bcrypt.hash(user.password, 10)
-        .then(hash => {
-            user.password = hash;
-            // TODO: Implement passwordConfirm check;
-            user.passwordConfirm = hash;
-        })
-        .catch(err => { 
-            throw new Error(); 
-        });
-});
+    return passwordHasher(user)} 
+);
+// User.beforeCreate((user, options) => {
+//     console.log(user.firstName);
+//     return bcrypt.hash(user.password, 10)
+//         .then(hash => {
+//             user.password = hash;
+//             // TODO: Implement passwordConfirm check;
+//             user.passwordConfirm = hash;
+//         })
+//         .catch(err => { 
+//             throw new Error(); 
+//         });
+// });
 module.exports = User;

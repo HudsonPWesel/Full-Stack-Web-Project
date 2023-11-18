@@ -21,24 +21,7 @@ sequlize
 
 			);
 
-			createTemplateUsers(
-				'Graham',
-				'Wesel',
-				'gwesel@gmail.com',
-				'image',
-				'subheading',
-                'password',
-                'password'
-			);
-			createTemplateUsers(
-				'Blake',
-				'Wesel',
-				'bwesell@gmail.com',
-				'image',
-				'subheading',
-                'password',
-                'password'
-			);
+			
 		});
 	})
 	.catch(err => {
