@@ -1,4 +1,6 @@
 exports.login = (req,res) => {
-    // Todo compare hashed passwords and use JWT to maintain session
-    res.send('WEIFFWIEU');
+    const {email, password } = req.body;
+    console.log(email, password)
+    res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+
 }

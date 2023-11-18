@@ -54,7 +54,7 @@ exports.createClassmate = catchAsync(async (req, res, next) => {
 
 
     const data = req.body;
-    const token = jwt.sign( {data: data.id}, process.env.JWT_SECRET, {expiresIn : process.env.JWT_EXPIRES});
+    const token = jwt.sign( {data: data.id}, process.env.JWT_SECRET, {expiresIn : process.env.JWT_EXPIRES} );
 
     if(!await User.findOne({where : {email : data.email}})) {
         createTemplateUsers(data.firstName,data.lastName,data.email,data.imageUrl,data.subheading, data.password, data.passwordConfirm);
