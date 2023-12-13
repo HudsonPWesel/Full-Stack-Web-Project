@@ -2,7 +2,7 @@ const User = require('../../models/user');
 const express = require('express');
 const classmatesController = require('../../controllers/classmatesController');
 const router  = express.Router();
-
+const protectRoute = require('../../util/checkRoute');
 router.param('id', classmatesController.checkID);
 
 router.route('/').get(classmatesController.getClassmates);

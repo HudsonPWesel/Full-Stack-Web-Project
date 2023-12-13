@@ -8,6 +8,7 @@ const { createTemplateUsers, clearUsers } = require('../controllers/user');
 
 const classmatesRouter = require('./routes/classmates');
 const loginRouter = require('./routes/login');
+const userRouter = require('./routes/user');
 
 const app = express();
 app.use(cors());
@@ -22,7 +23,7 @@ app.use(morgan('dev'));
 // Todo Maybe make createNewClassmate a new route
 app.use('/classmates', classmatesRouter);
 app.use('/', loginRouter);
-
+app.use('/user', userRouter);
 
 app.all('*', (req,res,next) => {
     next(new AppError(`Cannot find ${req.originalUrl}`, 404));
